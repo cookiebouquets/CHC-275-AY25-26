@@ -81,3 +81,87 @@ sum = num + x
 #This should be the same result as 10 + 5 
 print(sum)
 
+""" 
+A big thing in computer science philosophy: make sure you are constantly updating variables that you want to be updated. 
+
+What kids have struggled with in the past is workign in a sequential train of thought
+
+x = value
+do something to x -> save it back into x
+x = value + some operation done to it 
+"""
+
+x = 5
+y = 10
+z = 0
+#z is our working variable, we save results of operations into z
+#We want to take the average of x and y 
+z = x + y 
+#working variable set to the sum of x and y
+print(z)
+#So Z is already set to 15, we just to divide z by 2, but we also need to set it back into itself 
+z = z/2 #this is something that would not happen in a math class, but its perfectly valid in programming
+
+#because the equals sign in programming is a variable assignment and not a test of equality 
+print(z) 
+
+""" 
+That is more or less what I have to numerical operations. Let's talk about in strings
+
+Data types:
+    - Numerical Data Types:
+        - integers (whole numbers and negative)
+        - floating point (decimal numbers)
+    - Strings
+        - collections of individual characters that come together and are stored under one variable name
+        - JUST PLAIN TEXT
+"""
+
+name = "Jack Basmaci"
+        #To create a string, it's imperative that you put double quotations around the string
+        #Single quotations are good too, but they have to be matching
+        
+occupation = 'Teacher'
+        #As long as you match between double or single it should be okay. 
+        
+print(name)
+print(occupation)
+#Great, printing them out works exactly the way we want them to. What about putting our name inside of 
+#another string? 
+
+#We can print variables inside other strings of text in python using something called f-strings
+ 
+""" 
+f-strings are short for format strings, basically they allow us to specify different formatting requirements
+inside of a print statement 
+
+We want to print: "my name is ______ and my occupation is _____"
+"""
+print(f"My name is {name}, and my occupation is {occupation}")
+    #This techinque is called f-strings 
+    
+""" 
+f-strings are good, but there are times where we want to do math operations on our strings 
+
+concatenation: combining two strings together 
+
+"""
+
+first = "Calvert"
+second = "Hall"
+school = first + second
+        #You can concatenate strings by calling the + sign between your two strings
+        #This is important because sometimes we want to create new strings with lists of individual characters
+        #Particularly when we want to do a palindrome program 
+print(school)
+
+school = second + first
+       #String concatenation is not commutative, if we reverse the strings in our additiion
+       #The output also gets reversed
+print(school)
+
+""" 
+Within this class, numerical data and string data are our most common data types. 
+
+We're gonna a whole cycle dedicated to weird things you can do with strings later on. 
+"""
