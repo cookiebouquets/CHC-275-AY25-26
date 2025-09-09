@@ -73,7 +73,7 @@ print(x / num)
 """ 
 This is great that we can print these things out, but its not exactly useful
 
-the python interpreter its stupid: it doesn't remember what it printed out, it doesn't remember
+the python interpreter is stupid: it doesn't remember what it printed out, it doesn't remember
 the results of mathematical operations unless you tell it to. 
 
 """
