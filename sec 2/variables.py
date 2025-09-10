@@ -126,3 +126,7 @@ In python, we can do this in two ways.
 """
 print(f"My name is {name}")
 print(f"the sum of x and y is {sum}")
+
+
+nums = [1,2,3,4,5]
+
