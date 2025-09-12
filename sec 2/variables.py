@@ -124,9 +124,16 @@ In python, we can do this in two ways.
     - fstrings: format string and it lets specify placeholder values in strings so you can drop in variables
     
 """
+
+
 print(f"My name is {name}")
 print(f"the sum of x and y is {sum}")
 
+""" 
+wE made variables
+we added variables
+we printed variables using f-strings
 
-nums = [1,2,3,4,5]
 
+WE want to be able to have keyboard input
+"""
