@@ -142,7 +142,7 @@ What happens in the backend:
     1) Once the if statement is evaluated, the python intrepeter skips all other parts 
     of the if-elif chain and just goes to the next line. 
 """
-
+x = 10
 if x % 5 == 0:
     print(f"{x} is divisible by 5")
     
@@ -150,3 +150,72 @@ if x % 2 == 0:
     print(f"{x} is divisible by 2")
 else: 
     print(f"{x} is not divisible by by 5 or 2")
+    
+    
+    
+    
+""" 
+We can have multiple conditions inside of one if statement
+
+if <conditional>:
+    <code block>
+    
+if <condition 1> and <condition 2>: #1 and 2 MUST be satisified
+    <code block>
+    
+if <condition 1> or <condition 2>: #1 or 2 MUST be satisifed 
+    <code block>
+"""
+
+x = 10
+
+if x > 5 and x > 15:
+    print(f"{x} is greater than 5 and 15")
+    
+if x > 5 or x > 15:
+    print(f"{x} is greater than 5 or 15")
+    
+    
+#Two new keywords, AND and OR
+#and needs BOTH conditions satisified, or needs only ONE condition satisified 
+
+""" 
+These are really weird examples 
+
+- equality checking == 
+- greater than > 
+- Less than < 
+greater than or equal to >=
+less than or equal to <= 
+
+How can we adapt this into a program that makes sense? Let's say we want to write a program that prints something different 
+if you are a freshman, sophomore, junior, or senior 
+
+we want to write a program that does something new whenever we type in a different thing on an individual run of the program
+    - variables
+    - inputs
+    - if else statements
+"""
+
+year = input("Enter your year: ") #This has to be freshman, sophomore, junior or senior
+
+if year == "freshman":
+    print("your grade level is 9")
+elif year == "sophomore": 
+    print("Your grade level is 10")
+elif year == "junior":
+    print("your grade level is 11")
+elif year == "senior":
+    print("Your grade level is 12")
+
+"""
+something extremely tricky happens with strings. Equality checking with strings is extremely strict. for equality checking, the strings
+HAVE to match exactly.
+
+"freshman" != "Freshman" 
+"freshman" != "freshman "
+"freshman" != " freshman"
+"freshman  " != "freshman "
+
+Lets think back to our calculator 
+"""
