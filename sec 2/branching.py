@@ -108,5 +108,27 @@ if x % 5 == 0:
      
      
 """ 
+Last class:
+
+    -We covered IF-ELIF-ELSE
+    -branching paths within our programs
+    -Booleans: true or false values
+    -Conditional statements: statements that can be evaluated to true or false 
+    
+    
+Reminders on syntax:
+
+if <conditional>: 
+    <code block>
+elif <conditional>:
+    <code block>
+else: 
+    <code block> 
+    
+checking for equality versus variable assignment 
+
+equality: == 
+variable assignment: = 
+
 
 """
