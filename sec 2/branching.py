@@ -130,5 +130,16 @@ checking for equality versus variable assignment
 equality: == 
 variable assignment: = 
 
+there are times where you want to evaluate more than one conditional
 
+<conditional> AND <other conditional> 
+
+for example, for something to be a triangle
+
+angle 1 == 90 AND angle 2 + angle 3 == 90 <- Two conditions being checked here
+
+coniditon 1: angle 1 == 90
+condition 2: angles 2 and 3 adding up to 90 as well. 
+
+How would we do something like this in python? 
 """

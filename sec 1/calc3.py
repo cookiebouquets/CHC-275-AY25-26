@@ -5,7 +5,8 @@ Make a calculator program, that lets you keep doing operations until the user ty
  - some check variable
  - elif for quit 
  
-should print the menu once? or keep it printing it for every time they do a new operation? 
+should print the menu once? or keep it printing it for every time they do a new operation?
+you can just copy and paste most of the logic from the branching calculator 
 """
 
 print("welcome to the calculator!")
