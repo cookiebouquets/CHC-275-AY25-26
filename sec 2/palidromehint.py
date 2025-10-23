@@ -27,4 +27,8 @@ after we save the word backwards into reverse using for-loop, the empty string, 
 
 all we need to do is what? we can check equality with an if-statement 
 
+1) input your word into a variable
+2) reverse the word, save it into reverse
+3) check if word == reverse
+
 """
