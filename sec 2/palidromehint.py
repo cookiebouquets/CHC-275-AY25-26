@@ -118,6 +118,7 @@ r     r
    e
 
 
+
 while i < (len(size) - 1)//2 and check == True:
    if word[i] == word[len(word) - 1 - i]:
       i = i + 1

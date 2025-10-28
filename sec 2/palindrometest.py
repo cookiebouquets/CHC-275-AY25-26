@@ -4,5 +4,3 @@ word = list(word)
 reverse = (list(reversed(word)))
 print(word == reverse)
 
-
-print("A"* 8)
