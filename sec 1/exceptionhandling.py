@@ -66,6 +66,8 @@ I'm going to introduce two new keywords
 try: 
 
 except: 
+
+Try except finally blocks should capture the smallest amount of code where an error can reasonably come up
 """
 try: 
     x = input("Enter num 1: ")
