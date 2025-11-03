@@ -1,5 +1,5 @@
-John
-Paul
-Sam
-Joseph
-Brian
+John,98
+Paul,90
+Sam,91
+Joseph,92
+Brian,88
