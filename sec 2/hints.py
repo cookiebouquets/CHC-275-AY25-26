@@ -23,7 +23,7 @@ We have two kinds of for loops:
 one of these two allow direct modification of the list
     -for i 
     
-for-i loop that goes over all of the elements in each list and typecasts the numbers into integers
+    for-i loop that goes over all of the elements in each list and typecasts the numbers into integers
 """
 
 
