@@ -28,7 +28,6 @@ Outline
 
 you probably want to hold everything in a while loop
 
-
 """
 
 price = "1.75" #how do i typecast this
