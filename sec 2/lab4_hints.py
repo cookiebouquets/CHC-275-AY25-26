@@ -16,6 +16,19 @@ an empty list?
     i. total = 0
     ii. food = []
     iii. prices = []
+    
+
+file I/O before your while loop 
+
+Outline
+    1. Declare Empty Variables
+    2. File I/O
+    3. While loop containing the actual program structure
+
+
+you probably want to hold everything in a while loop
+
+
 """
 
 price = "1.75" #how do i typecast this
