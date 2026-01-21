@@ -180,4 +180,97 @@ print(x)
 we expected 15, but 5 ended up getting printed out? Why is that the case?
 
 pass by value vs pass by reference <- which we are going to pick up with next class. 
+
+Before we talk about pass by value and pass by reference, we need to discuss mutability
+
+mutability = ability to be changed or the possibility of having its state changed
+
+immutable = its state cant be changed
+mutable = its state CAN be changed
+
+Based on our example above, integers are IMMUTABLE
+
+the typical heuristic to figure out if something is mutable or immutable:
+    - whether or not its size can change (its length)
+
+
+mutable:
+    - lists
+    - strings
+
+immutable:
+    - numbers
 """
+print("mutability example")
+mylist = [1,2,3,4] #this is a list, its length can change
+
+print(mylist)
+def update2(nums):
+    #we are expecting nums to be a list here
+    nums.append(5)
+
+update2(mylist)
+print(mylist)
+
+""" 
+immutable objects are passed by value
+    - when the function is called, python will make a temporary copy of the variable, and the variable outside of the function won't get updated
+    
+mutable objects are passed by reference
+    - when the function is called, python will directly access the variable and update it if any changes are made. 
+    
+It's called pass by reference because:
+    variables:
+        - the name of the variable itself (we can think of this as a memory address)
+        - its data type
+        - the value(s) itself
+        
+    variables are named locations in memory where you can store a value
+    
+so when we say we are passing by reference, we are passing in the LOCATION of the object rather than the VALUE of the object.
+
+How exactly do we update immutable objects? 
+
+we have to use the "return" keyword
+
+    - input() specifically "returns" a string
+    
+for objects declared inside of a function (this is including the copies of arguments for immutable objects), they have a limited lifespan. 
+
+for example, if we created a function called foo(x), and x is supposed to be an integer, then x has a limited lifetime, after foo(x) ends, x 
+will be destroyed and that memory will be freed up
+"""
+""" 
+def foo(x):
+    factor = 0.2
+    print(factor)
+    print(x*factor)
+    
+foo(5)
+print(factor) 
+print(100 * factor) #factor is still inaccessible
+""" 
+
+""" 
+we can think of return as python flagging the computer to remember certain pieces of information from the function's lifetime.
+
+Each codeblock in python has its own "scope" so things outside of that codeblock's "scope" can't access variables created inside that scope. 
+
+When we did stuff like 
+
+
+for x in mylist: x has a temporary lifetime, it can accessed within the scope of the for-loop. Tab levels indicate scope in python. 
+
+"""
+
+def updateBalance(money,change):
+    #two parameters, money and change.
+    money = money - change
+    return money #if we return money, then we are flagging to the system to keep money within the system's money
+    #all return does is flags the computer to remember something. We need to assign that remebered variable to something
+    
+print("return example")
+balance = 500 
+print(balance)
+balance = updateBalance(balance,200) #just like using input, we need to assign this value back into a variable
+print(balance)
