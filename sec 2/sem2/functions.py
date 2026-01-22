@@ -166,6 +166,7 @@ for-each loops created temporary copies of those variables. For-each loops have 
 """
 
 mylist = [1,2,3,4]
+
 def add10(nums):
     for i in range(len(nums)):
         nums[i] = nums[i] + 10
