@@ -285,10 +285,16 @@ Programming drill 2:
         "nums" UNTIL the user types in "stop"
         - returns that list
         
-    - try making two lists using makeList() and print those lists out
+    - try making two lists using makeList() and print those lists out. 
+    
+    Work on this until 10:00 AM and just submit what you have if you aren't done
 """
 
-
+#this is a hint for the next lab, it's basically the first part
+#probably use a while loop, you'll need a flag variable like check = true
+#remember for while loops exit condition needs two equals signs
+#the if statement to check if the input is "quit" should be before you attept to typecast to an int
+#if (thing the user types in) == "quit": return the list else: try to typecast and append to list
 def makeList():
     nums = []
     pass
