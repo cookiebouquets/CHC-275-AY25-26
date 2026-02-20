@@ -128,11 +128,7 @@ For nested loops,
         j = 2
 """
 
-board = [
-    [0,0,0],
-    [0,0,0],
-    [0,0,0]
-]
+
 
 """ 
 we're going to implement tic-tac-toe over the next couple classes 
@@ -143,7 +139,15 @@ a checkWinner(board)
 """
 
 
-print(board)
+
+
+board = [
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]
+]
+
+current_player = "O"
 
 def printBoard(board):
     """
@@ -153,6 +157,107 @@ def printBoard(board):
         for j in range(len(board[0])):
             print("|",end = "")
             print(board[i][j], end = "|")
-        print()
+        print() #prints \n
     
 printBoard(board)
+
+
+"""
+1. print the board
+2. ask the current player to place their piece
+3. check to see if someone won
+4. switch the player and do it again  
+"""
+
+def placePiece(board,current_player,row,col):
+               #board, either X or O, Y, X
+    """ 
+    So when I'm placing a piece on the board, I'm really doing variable assignment on a single element inside our 2D list. 
+    Remember: Passing a list as an argument is pass by reference, so we don't need to return any values because when we update
+    the board, we are directly modifying the memory. 
+    """
+    if board[row][col] == 0:
+        board[row][col] = current_player #it replaces the (x,y) coordinate inside our board with the current_player's marker
+        #there is a problem with our current implementation: We don't check if the (x,y) coordinate is an open square
+    else:
+        print("That is not a valid square")
+
+def switchPlayer(current_player):
+    """ 
+    All this does is switch the character from "O" to "X" and "X" to "O"
+    
+    What datatype is current_player? its a string. strings are immutable in python. 
+    
+    immutability implies what when its passed in as an argument? 
+        1) pass by reference
+        2) pass by value
+    
+    since its by value we need to return something. It's not enough to just set current_player
+    to X or O because we don't know which state its in 
+    """
+    if current_player == "O":
+        #this is the swap
+        return "X"
+    elif current_player == "X":
+        return "O"
+     
+""" 
+The last part of our process is to check to see if someone won. 
+
+1) How many ways can you win in tictactoe 
+    a) Row Victory
+    b) Diagonal Victory
+    c) Column 
+2) When you're playing tictactoe, can your opponent win off your turn? 
+    a) no 
+    
+1st question: informs us that we have three conditions to check
+2nd question: informs us that we don't need to check both players 
+"""
+
+def checkWinner(board,current_player):
+    #Row Victories
+    for i in range(len(board)): #gets all of the rows
+        if board[i][0] == current_player and board[i][1] == current_player and board[i][2] == current_player:
+            print(f"{current_player} wins!")
+            return True
+    
+    """ 
+    [
+        [x,x,x] (0,0) (0,1) (0,2)
+        [0,0,0] 
+        [0,0,0]
+    ]
+    """
+    
+    #Column Victories
+    """
+    there's a problem with columns in 2d lists. Retrieving entire columns is not a natural operation. 
+    Inside of a row: every value in a row is contained inside of a single list.
+    Inside of a column: EACH value is stored in a DIFFERENT list
+    """
+    for j in range(len(board[0])):
+        if board[0][j] == current_player and board[1][j] == current_player and board[2][j] == current_player:
+            print(f"{current_player} wins!")
+            return True
+    
+    
+    #Diagonal Victories
+    
+test_board1 = [
+    ["O","O","O"],
+    [0,0,0],
+    [0,0,0]
+]
+print()
+printBoard(test_board1)
+checkWinner(test_board1,"O")
+
+test_board2 = [
+    [0,"X",0],
+    [0,"X",0],
+    [0,"X",0]
+]
+print()
+printBoard(test_board2)
+checkWinner(test_board2,"X")
