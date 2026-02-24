@@ -244,6 +244,7 @@ def checkWinner(board,current_player):
     
     #Diagonal Victories
     
+    
 test_board1 = [
     ["O","O","O"],
     [0,0,0],
