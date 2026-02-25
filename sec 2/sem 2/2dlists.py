@@ -281,6 +281,39 @@ def checkWinner(board,current_player):
         print(f"{current_player} wins")
         return True
     
+    #Ties
+    #What constitutes a tie? No empty spaces left
+    #so this is the last piece of code that is executed before the function call ends. So if there's no row,col,diag, there needs to be a check for a tie
+    #and if there's no tie, they need to continue playing 
+    #The ONLY reason why we return a value at all is to signal to the game that we have finished playing. 
+    #If there is a tie, you should return True. If all else fails, game continues -> returninng false
+    for row in board:
+        for space in row:
+            if space == 0: #<= is this checking if this is the empty space? 
+                return False
+
+    #if the for-loop finishes, that implies there is a tiue
+    return True #this flags for the game to end
+
+""" 
+1) Check for row: return True
+2) check for col: return True
+3) check for adiag: return True
+4) check for an open space: return False
+
+5) if 4) fails, then return True because we are implying there is a tie. 
+"""
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
 board1 = [
     ["O","O","O"],
     [0,0,0],
