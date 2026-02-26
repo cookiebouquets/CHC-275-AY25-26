@@ -243,8 +243,62 @@ def checkWinner(board,current_player):
     
     
     #Diagonal Victories
+    """ 
+    2 Ways, left diagonal or a right diagonal
+    Left Diagonal
+    [X,0,0] (0,0)
+    [0,X,0] (1,1)
+    [0,0,X] (2,2)
     
+    Right Diagonal
+    [0,0,X] (0,2)
+    [0,X,0] (1,1)
+    [x,0,0] (2,0)
+    """
     
+    #Left Diagonal First
+    if board[0][0] == board[1][1] == board[2][2] == current_player:
+        print(f"{current_player} wins!")
+        return True #when we want to exit the while loop of the actual game, we need some sort of flag variable 
+    
+    #Right Diagonal
+    if board[0][2] == board[1][1] == board[2][0] == current_player:
+        print(f"{current_player} wins!")
+        return True #when we want to exit the while loop of the actual game, we need some sort of flag variable         
+    
+    """ 
+    There could be ties in tictactoe:
+    
+    What determines whether there is a tie? 
+    
+    A tie occurs when there are no more empty spaces (no more 0s) <= checking for a lack of zeros is hard
+    
+    What is a logically equivalent statement to "no more zeros?" 
+    
+    Checking for AT LEAST one zero is an equivalent task but easier to code. 
+    
+    What kind of looping statement should we use?
+        1) for each
+        2) for-i,j 
+        
+    1) we aren't changing anything about the board
+    2) Knowing the current value's index doesn't really affect anything. 
+
+    
+    3) If there's a tie, what value do we want to return (True or False)? True
+    4) If we find a zero, what do we return? False
+    """
+    for row in board:
+        for space in row:
+            if space == 0:
+                return False #the return statement not only flags the interpreter to remember a value, they also do one other thing
+                #return also terminates the function call 
+    
+    return True
+
+
+
+
 test_board1 = [
     ["O","O","O"],
     [0,0,0],
@@ -262,3 +316,84 @@ test_board2 = [
 print()
 printBoard(test_board2)
 checkWinner(test_board2,"X")
+
+
+""" 
+Q1. 
+
+grid = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+print(grid[1][1]) = 5
+
+
+Q2. 
+
+grid = [
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,10,11,12]
+]
+
+print(grid[4][3]) = error, index out of bounds error 
+
+Q3. 
+
+grid = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+for row in grid:
+    for num in row:
+        num += 10
+        
+print(grid) = Stay the same because for-each loops make copies
+
+Q4. 
+
+grid = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+for i in range(len(grid)):
+    for j in range(len(grid[0])):
+        grid[i][j] += 5
+        
+print(grid) = adds 5 to every number because for-i,j loops directly modify the memory 
+
+Q5. 
+
+grid = [
+    ["O","O","O"],
+    [0,0,0],
+    [0,0,0]
+]
+
+if grid[0][0] == grid[1][0] == grid[2][0] == "O": #this is a column victory
+    print True
+else:
+    print Flase
+    
+    
+Q6. 
+
+grid = [
+    ["O","O","O"],
+    [0,0,0],
+    [0,0,0]
+]
+
+if grid[0][0] == grid[0][1] == grid[0][2] == "O": #this is a row victory
+    print True
+else:
+    print Flase
+
+
+"""
