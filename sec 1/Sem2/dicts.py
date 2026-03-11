@@ -183,3 +183,133 @@ INCLUDING:
 
 testdict = {1:"hello",2:True,3:[1,2,3],4:{"foo":1,"bar":2}}
 print(testdict)
+
+""" 
+Last class we covered dictionaries. These are a new kind of data structure that offer tradeoffs versus standard lists
+
+1) Information retrieval ends up being more descriptive, because we store things in key-value pairs over position-based 
+descriptions, information retrieval ends up becoming more intuitive. 
+2) the syntax is much harder and there are a lot of limitations on what can be a key
+    i) Immutable objects
+        - Integers
+        - Strings
+        - Tuple <- we'll get to this
+        
+Creating a dictionary requires curly braces
+
+mydict = {} <- curly braces instead of square brackets
+
+information retrieval is done the same way as a list
+
+mydict[<key>] <- this returns the value associated with the key 
+
+There are helper functions that might be useful such as .keys() and .values()
+
+1) When we do a for-loop over a dictionary, what does the temp variable represent?
+    - Keys or Values? For-loops return keys
+"""
+
+
+""" 
+Adding things is different compared to lists: 
+    1) for a list we used .append()
+    2) for a dictionary, we need to specify both a key and a value 
+        i) dict[<key>] = value
+        
+Dictionaries are based on something called a hash function <- wait until college to figure this out
+
+There are some questions that we have unanswered:
+    1) How do we remove something from dictionaries? 
+        - There are two ways 
+"""
+
+
+mydict = {1:"foo",2:"bar",3:"hello"}
+
+
+""" 
+The unsafe way: is using the del keyword.
+"""
+
+del mydict[1] #this will remove the key/value pair at the key specified
+print(mydict)
+
+#del mydict[1] #This is unsafe because you can accidentally delete the entire dictionary or you can get a keyError
+#which terminates the program if the key doesn't exist. 
+#print(mydict)
+
+""" 
+Rather than getting name and key errors from making a mistake with del keyword, we can use a dictionary builtin function
+that accomplishes the same thing but returns a value instead of just straight up crashing the program
+
+.pop(<key>)
+"""
+
+mydict.pop(2)
+print(mydict) #3:"hello"
+
+""" 
+.pop() for lists take no other argument, but for dictionaries, if the doesn't exist anymore, you can specify a second argument
+that is returned when python doesn't find the key specified
+"""
+print("after second pop")
+mydict.pop(2,0) #pop key 2 and return 0 if key 2 isn't in the dictionary
+print(mydict)
+
+print(mydict.pop(2,"object not found"))
+
+""" 
+.pop() returns the value that was deleted
+"""
+
+mydict.clear() #this just removes everything from the dictionary 
+print(mydict)
+
+""" 
+mutable objects are pass by reference: lists, dictionaries, etc. 
+
+immutable objects are pass by value: integers and floats/strings 
+
+dictionaries model file types called .JSONs <- when you are parsing JSONs through dictionaries it would be useful
+to have a clear function because you don't want to destroy the RAM on your computer. 
+
+The last new data structure I'm willing to introduce in this class is called a tuple. <- They are just lists that are immutable
+
+tuples use the ordered pair notation. (x,y) <- tuples use this same notation
+"""
+
+mytuple = (10,20,30)
+print(mytuple)
+
+#mytuple[1] = 200 #tuples are immutable, this should give me an error
+print(mytuple)
+
+"""
+why do we care about tuples? they just seem like worse lists. 
+
+can a List be a key? lists are mutable so they can't be. 
+
+So if I wanted a key to be a collection of information, I can't use a list
+
+People can have the same name, so I can't just use a raw string
+
+"John Smith" <- can't have this just be my key, you can have multiple John Smiths 
+
+(studentID,firstName,LastName) <- this is a satisfying key because studentID uniquely determines a student 
+"""
+
+students = {}
+
+
+students[(1,"John","Smith")] = {"english":80,"math":90,"econ":71} #this is typically a much safer way to store
+students[(2,"Myles","Whatever")] = {"english":85,"math":90,"econ":71} 
+#user information in a dictionary. 
+print(students)
+
+""" 
+Typically going to be served data in a .csv (which is a spreadsheet) -> construct keys using tuples from columns
+of the spreadsheet -> you will use such tuples as keys for a dictionary -> you will serve that data as a .JSON file 
+from a dictionary 
+
+^This is how APIs work basically 
+"""
