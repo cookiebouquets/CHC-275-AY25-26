@@ -315,6 +315,7 @@ from a dictionary
 """
 
 
+#Syntax tip for the lab
 mydict = {} #students in main
 mydict1 = {} #individual student level
 mydict2 = {"foo":10} #grades
