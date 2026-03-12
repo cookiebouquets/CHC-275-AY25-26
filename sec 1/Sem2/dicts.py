@@ -313,3 +313,17 @@ from a dictionary
 
 ^This is how APIs work basically 
 """
+
+
+mydict = {} #students in main
+mydict1 = {} #individual student level
+mydict2 = {"foo":10} #grades
+
+mydict["a"] = mydict1
+mydict1[1] = mydict2
+
+#in a 2D list we did double square square brackets to get an individual number
+
+print(mydict["a"])
+print(mydict["a"][1]) #this should give me mydict2
+print(mydict["a"][1]["foo"]) #this will give me the number 10
