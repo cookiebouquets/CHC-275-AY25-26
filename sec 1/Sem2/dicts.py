@@ -328,3 +328,33 @@ mydict1[1] = mydict2
 print(mydict["a"])
 print(mydict["a"][1]) #this should give me mydict2
 print(mydict["a"][1]["foo"]) #this will give me the number 10
+
+
+
+#Print Menu first because its the easiest
+#addStudent
+
+""" 
+addStudent 
+    1) directory <- this is a dictionary
+        keys = names of students
+        values = another dictionary containing these things:
+            1) email
+            2) graduation year
+            3) another dictionary corresponding to grades
+                a) English
+                b) Math
+                c) religion
+                d) History
+    
+    1) Ask for the name first
+    2) Email
+    3) Grad Year
+    4) making an empty dictionary called grades
+        a) key,value pairs corresponding to each subject
+            grades["english"] = int(input("enter the english grade" ))
+            
+    student = {"Email":email,"gradyear":gradyear,"grades":grades}
+    directory[name] = student
+            
+"""
