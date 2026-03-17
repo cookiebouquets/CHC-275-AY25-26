@@ -180,7 +180,57 @@ for x in mydict2.values():
     
     
 """ 
-Tuples 
+Tuples: 
+    - Keys: HAVE TO BE IMMUTABLE
+        - Restricts us to Strings and Numbers <- this might not be sufficient for some usecases
+        
+        
 """
 
+accounts = {} #<= this is how you create a dictionary
+
+""" 
+KEYS: NAME FOR THE ACCOUNT HOLDER
+VALUE: BALANCE
+
+THE SCHEMA OF THIS DICTIONARY IS KEYS: ACCOUNT NAMES VALUES: BALANCES (NAME:BALANCE)
+
+two people: 
+    - John Smith : -250
+    - John Smith : 1000000
+"""
+
+accounts["John Smith"] = -250 #we add the first John Smith
+print(accounts)
+accounts["John Smith"] = 1000000 #this is no longer adding into the dictionary, this becomes variable reassignment
+print(accounts)
+
+""" 
+NAMES ARE NOT SUFFICIENT TO UNIQUELY DETERMINE DIFFERENT CORRECT. IDEALLY IN A PERFECT WORLD, WE WANT MULTIPLE PIECES OF INFORMATION
+TO UNIQUELY DETERMINE SOMEONE
+    - LISTS 
+    - DICTIONARIES
+    
+are these mutable or immutable? MUTABLE, so we can't use them as keys. we need a new data structure that can hold a collection of objects
+while also being immutable
+
+THE TUPLE SOLVES THIS PROBLEM
+"""
+
+mytuple = () #<- this is a tuple
+#typically tuples are used as unique identifiers for other variables
+
+ID1 = (1,"John Smith")
+ID2 = (2,"John Smith") 
+
+accounts2 = {ID1:-250, ID2:1000000}
+
+print(accounts2[ID2])
+
+""" 
+THIS IS A COMMON INTERNSHIP INTERVIEW PROBLEM:
+
+    1) What is the difference between immutable and mutable objects?
+    2) What is the difference between a tuple and a list? 
+"""
 
