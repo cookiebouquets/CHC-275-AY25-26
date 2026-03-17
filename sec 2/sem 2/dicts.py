@@ -177,3 +177,8 @@ we DONT want to do that
 
 for x in mydict2.values():
     print(x) #this gets the balances
+    
+    
+""" 
+Tuples 
+"""
