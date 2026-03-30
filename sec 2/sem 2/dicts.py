@@ -260,5 +260,8 @@ directory = {"Frank":{"GradeLevel":12},
              "Grant":{"GradeLevel":12},
              "Jackson":{"GradeLevel":12}}
 
-for name in directory:
-    print(f"{name}, {directory[name]}")
+name = "Frank"
+print(f"{name}, {directory[name]}")
+name = "Preston"
+print(f"{name}, {directory[name]}")
+
