@@ -251,3 +251,14 @@ FOR ADD STUDENT:
     -ASSEMBLE THE GRADES DICTIONARY USING THE GRADES YOU ASKED FOR 
     -ADD THE STUDENT INTO THE DIRECTORY DICTIONARY USING THE NAME YOU ASKED FOR AS THE KEY
 """
+
+
+
+directory = {"Frank":{"GradeLevel":12},
+             "Preston":{"GradeLevel":12},
+             "Aidan":{"GradeLevel":12},
+             "Grant":{"GradeLevel":12},
+             "Jackson":{"GradeLevel":12}}
+
+for name in directory:
+    print(f"{name}, {directory[name]}")
