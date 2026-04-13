@@ -152,3 +152,4 @@ _________
 Every single operation you can think can be represented as a sequence of ANDs and ORs (XOR) 
 ^ this is really what circuits are
 """
+
