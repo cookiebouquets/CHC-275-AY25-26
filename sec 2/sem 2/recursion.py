@@ -255,7 +255,7 @@ BOARD = [    #Entrance (0,0)
              [0,0,0,0,0,1,0],
              [0,0,1,1,0,0,1],
              [0,1,0,0,1,0,1],
-             [0,1,0,0,1,0,0], #exit down here   (len(board) -1, len(board[0]) -1)
+             [0,1,0,0,1,0,0], #exit down here (len(board) -1, len(board[0]) -1)
     ]
 
 
