@@ -248,4 +248,182 @@ No good notion as to what "next" means for a 2D-lists: Traverse across the row o
 
 So our recursive algorithm will effectively define what an optimal "next" is. <= this is what we're doing
 tomorrow. 
+
+
+Recall from yesterday: a recursive function is a function that calls itself
+    - Base Case: The exit condition
+    - Recursive Case: The part that calls itself 
+    
+For pathfinding: we are going to use a basic naive approach to this problem
+    - Our entrance is ALWAYS in the top left
+    - our exit is ALWAYS in the bottom right. 
+
+We can break the problem down into a recursive problem where
+
+Base Case:
+    - Whether or not we're at the exit, we just terminate the algorithm
+    
+Recursive: 
+    - Down Move
+    - right Move
+    - A backtracking move
+    
+Our program program should return a list of ordered pairs that correspond to the path taken from the entrance to the exit
+
+- validMove(board,x,y)
+    - Returns True if board[x][y] == 0, and 0 <= x < len(board) and 0 <= y < len(board[0])
+    
+- buildPath(board,x,y,path)
+    - Recursive function that builds the path:
+        - Base Case: Are we at the exit?
+            - if yes: return path
+            - if no: continue to recursive case
+            
+        - Recursive case: builds path
+            Append((x,y))
+            - Down Case: buildPath(board,x+1,y,path) 
+            - Right Case: buildPath(board,x,y+1,path) 
+            - BackTrack: path.pop() which will effectively remove the last invalid move up until we get a new valid move
+
+- search(board,x,y)
+    -Calls buildPath until it returns the path
+    
+
 """
+
+def validMove(board,x,y):
+    #Checks to see if we're at an empty space and within the bounds of the board
+    return  0 <= x < len(board) and 0 <= y < len(board[0]) and board[x][y] == 0 
+
+def buildPath(board,x,y,path):
+    #Recursive Function
+    #Base Case:
+    if x == len(board) - 1 and y == len(board[0]) - 1:
+        path.append((x,y))
+        return path
+    
+    #Recursive Case:
+    if validMove(board,x,y):
+        path.append((x,y))
+        
+        #Down Case:
+        if buildPath(board,x+1,y,path):
+            return True
+        
+        #Right Case:
+        if buildPath(board,x,y+1,path):
+            return True
+        
+        #Backtrack case
+        path.pop()
+    
+    return False
+    
+def search(board):
+    path = []
+    buildPath(board,0,0,path)
+    for coord in path:
+        board[coord[0]][coord[1]] = "X"
+        
+    for row in board:
+        for char in row:
+            print(char, end = "")
+        print()
+    return path
+""" 
+The stack is LIFO, so the call stack is going to get populated with 
+    1) Down Case First
+    2) As soon as the first DownCase fails (all of the down coordiantes get collapsed into the path)
+    3) Call stack will get populated with rightCases (if possible)
+    4) as soon as a right case fails(all of the right coordiantes get collapsed into the path)
+    5) then we just keep popping invalid moves up until we return to a coordinate where 2-4 can repeat
+    
+"""
+
+
+
+BOARD = [    #Entrance (0,0)
+             [0,1,1,1,0,0,0],
+             [0,1,0,1,1,0,0],
+             [0,0,0,0,0,1,0],
+             [0,0,1,1,0,0,1],
+             [0,1,0,0,1,0,1],
+             [0,1,0,0,1,0,0], #exit down here (len(board) -1, len(board[0]) -1)
+    ]
+
+print(search(BOARD))
+
+""" 
+Recursion helps for nonlinear problems, but they also help with the other computational problems:
+
+"""
+
+nums = [num for num in range(999)] #0-999
+        #^ List Comprehension: exclusive to python
+        
+    
+""" 
+What is our naive way of searching for a number within this list? 
+    - Scan the entire list and verify whether or not nums[i] == target
+    
+Problem: Given a target in our list, how do we find it? 
+
+"""
+def linearSearch(nums,target):
+    for i in range(len(nums)):
+        if nums[i] == target:
+            return i
+        
+    
+    return False #implies that the number was never found
+
+
+""" 
+How many comparisons does it take to find the number 847? 847 Comparisons. If we uses this approach on a list with 1 billion numbers, do we feel like this is fast? no,
+this is very slow
+
+We need some sort of efficient algorithm that helps us a number in less steps
+
+How about we do something like this I want to find 847:
+    - Middle of the list to 847
+    
+    nums[middle index] = 500
+    
+    is 500 < 847? Yes, I can throw away every single number to the left of 500
+    [500-999] mid = 750
+    
+    750 < 847? Yes, do i need any number to the left of 750?
+    [750-999] mid = 875
+    
+    875 > 847? Yes, I can throw away every number to the RIGHT of 875
+    [750-875] .... repeating until you get to the target
+    
+This procedure is MUCH faster than linear search. This is going to find 847 ~7-10 comparisons. YES: we can implement recursively
+    
+
+"""
+
+def binarySearch(list,target,curr):
+    mid = len(list)//2
+    if list[mid] == target:
+        return curr
+    
+    if list[mid] < target:
+        return binarySearch(list[mid:],target,curr + 1)
+    
+    if list[mid] > target:
+        return binarySearch(list[:mid],target, curr + 1)
+    
+    
+print(binarySearch(nums,847,0)) #found 847 in 9 iterations 
+
+""" 
+There's a limitation to binary search: binary search assumes the list is sorted beforehand
+
+Analysis of Algorithms is a class you'll take that examines the limitations and tradeoffs of computational algorithms 
+
+Tomorrow's class:
+    - Algorithmic Complexity (Complexity Theory): intro to Honors DSA 
+"""
+
+nums = [1,5,3,2,7] #binary search doesnt work here, does linear search work? yes
