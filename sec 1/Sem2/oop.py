@@ -208,3 +208,17 @@ The way scoping works:
     
 """
 
+int(input()) #we called this typecasting i said that int() was a function 
+
+""" 
+int() is a constructor to create integer objects 
+float()
+bool()
+list()
+dict() 
+
+they're all special cases of the __init__() function. Furthermore: Everything in python
+IS AN INSTANCE OF SOME OBJECT
+
+There's a saying: Everything in python is an object.  
+"""
