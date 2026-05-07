@@ -2,7 +2,6 @@ class complex:
     def __init__(self,a,b):
         pass
     
-    
     def __add__(self, other):
         pass
     
@@ -14,6 +13,7 @@ class complex:
     
     def __str__(self):
         pass
+    
     def conj(self):
        pass
 

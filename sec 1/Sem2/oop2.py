@@ -164,8 +164,17 @@ class SpecialNumber():
     def __add__(self, other): #overloading the addition sign
         return 2*self.value + 2*other.value
     
+    def __str__(self):
+        return f"{self.value}"
+    
 num1 = SpecialNumber(4)
 num2 = SpecialNumber(2)
 
 print(num1 + num2) # 2*4 + 2*2 = 8 + 4 = 12
+print(num1)
 
+""" 
+If i try to print an instance of a Specialnumber, it just returns a memory address. To implement printing correctly
+
+__str__ <= this is the tostring method
+"""
